@@ -177,6 +177,18 @@
   .cf-list li::before{content:'';position:absolute;left:0;top:9px;width:10px;height:1px;background:var(--accent);}
   .cf-list li b{color:var(--ink);font-weight:600;}
 
+  /* ============ FINDINGS ============ */
+  .finds{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+  .find{background:var(--panel);border:1px solid var(--line);padding:28px;display:flex;flex-direction:column;gap:12px;border-top:2px solid var(--accent-2);}
+  .find.h{border-top-color:var(--accent);}
+  .find-tag{font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--accent-2);}
+  .find.h .find-tag{color:var(--accent);}
+  .find h3{font-family:var(--disp);font-weight:700;font-size:20px;letter-spacing:-.01em;line-height:1.25;}
+  .find p{font-family:var(--sans);font-size:13.5px;line-height:1.75;color:var(--dim);}
+  .find code{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--bg);padding:1px 6px;border:1px solid var(--line);}
+  .find-st{margin-top:auto;padding-top:14px;border-top:1px dashed var(--line);font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--accent);}
+  .find-note{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:18px;letter-spacing:.04em;}
+
   /* ============ SKILLS ============ */
   .matrix{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
   .matrix-cell{background:var(--panel);padding:28px;}
@@ -197,10 +209,12 @@
   .impact-score{font-family:var(--disp);font-weight:700;font-size:26px;}
   .impact-score.crit{color:var(--crit);}
   .impact-score.high{color:var(--accent-2);}
+  .impact-score.wip{color:var(--accent);}
   .impact-label{font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--dim);margin-top:2px;}
   .meter{width:170px;height:4px;background:var(--line);margin-top:8px;position:relative;overflow:hidden;}
   .meter i{position:absolute;left:0;top:0;bottom:0;background:var(--accent-2);}
   .meter i.crit{background:var(--crit);}
+  .meter i.wip{background:var(--accent);}
   .rec-desc{font-family:var(--sans);font-size:14px;line-height:1.8;color:var(--dim);max-width:780px;margin-bottom:22px;}
   .rec-tags{display:flex;flex-wrap:wrap;gap:8px;}
 
@@ -247,7 +261,7 @@
     .hero-grid{grid-template-columns:1fr;gap:40px;}
     section{padding:70px 22px;}
     .about-grid{grid-template-columns:1fr;}
-    .matrix{grid-template-columns:1fr;}
+    .matrix,.finds{grid-template-columns:1fr;}
     .disclosure{grid-template-columns:1fr;padding:40px 22px;gap:36px;}
     footer{flex-direction:column;gap:8px;padding:22px;}
     .cursor,.reticle,.reticle-dot{display:none;}
@@ -265,10 +279,11 @@
   <ul class="nav-links">
     <li><a href="#about"><b>01</b>profile</a></li>
     <li><a href="#experience"><b>02</b>engagement</a></li>
-    <li><a href="#skills"><b>03</b>matrix</a></li>
-    <li><a href="#projects"><b>04</b>records</a></li>
-    <li><a href="#certifications"><b>05</b>verification</a></li>
-    <li><a href="#contact"><b>06</b>contact</a></li>
+    <li><a href="#findings"><b>03</b>findings</a></li>
+    <li><a href="#skills"><b>04</b>matrix</a></li>
+    <li><a href="#projects"><b>05</b>records</a></li>
+    <li><a href="#certifications"><b>06</b>verification</a></li>
+    <li><a href="#contact"><b>07</b>contact</a></li>
   </ul>
 </nav>
 
@@ -284,10 +299,10 @@
         <span class="reveal-line">Challapalli<span class="bar"></span></span>
         <span class="reveal-line">Sathwik<span class="bar"></span></span>
       </h1>
-      <p class="hero-subhead">SECURITY ENGINEER — VULNERABILITY RESEARCH · VAPT · APPLIED ML DEFENSE</p>
-      <p class="hero-desc">Fourth-year B.Tech student in Cyber Security with hands-on experience in CVE analysis, SBOM generation, network VAPT, and ML-based threat detection. I read systems the way an auditor reads a ledger — looking for what doesn't add up.</p>
+      <p class="hero-subhead">SECURITY ENGINEER — APPSEC · API SECURITY · VAPT · APPLIED ML DEFENSE</p>
+      <p class="hero-desc">Final-year B.Tech student in Cyber Security with hands-on experience in application and API security testing, cloud and CI/CD security review, CVE analysis, and secret detection. I read systems the way an auditor reads a ledger — looking for what doesn't add up.</p>
       <div class="hero-cta">
-        <a href="#projects" class="btn btn-solid">View Advisory Records →</a>
+        <a href="#findings" class="btn btn-solid">View Bug Findings →</a>
         <a href="#contact" class="btn btn-line">Open Disclosure Channel</a>
       </div>
     </div>
@@ -302,7 +317,7 @@
         <div class="kv"><span class="kv-k">RECENT ENGAGEMENT</span><span class="kv-v">Flyingduck Labs</span></div>
         <div class="kv"><span class="kv-k">CVEs MAPPED</span><span class="kv-v accent">120+</span></div>
         <div class="kv"><span class="kv-k">IDS ACCURACY</span><span class="kv-v accent">95%</span></div>
-        <div class="kv"><span class="kv-k">CERTIFICATIONS</span><span class="kv-v">5</span></div>
+        <div class="kv"><span class="kv-k">CERTIFICATIONS</span><span class="kv-v">4 verified · 1 in progress</span></div>
         <div class="kv"><span class="kv-k">LOCATION</span><span class="kv-v">Coimbatore, IN</span></div>
       </div>
     </div>
@@ -316,16 +331,17 @@
   </div>
   <div class="about-grid">
     <div class="about-text reveal">
-      <p>I'm a <b>fourth-year B.Tech student</b> at Amrita School of Engineering, Amrita Vishwa Vidyapeetham, Coimbatore, specializing in Computer Science with a focus on Cyber Security.</p>
-      <p>My work spans <b>CVE analysis and vulnerability research</b>, SBOM generation, network VAPT, ML-based threat detection, and secure IoT systems. I believe in building — and breaking — systems until they're resilient.</p>
-      <p>I recently closed out a <b>Cybersecurity Internship at Flyingduck Labs</b>, where I mapped CVE signatures, built static analysis tooling, and ran a full vulnerability assessment on a live environment.</p>
+      <p>I'm a <b>final-year B.Tech student</b> at Amrita School of Engineering, Amrita Vishwa Vidyapeetham, Coimbatore, specializing in Computer Science with a focus on Cyber Security.</p>
+      <p>My work spans <b>application and API security</b>, CVE analysis, SBOM generation, VAPT, ML-based threat detection, and secure IoT systems. I believe in building — and breaking — systems until they're resilient.</p>
+      <p>I recently closed out a <b>Cybersecurity Internship at Flyingduck Labs</b>, where I mapped CVE signatures, built static analysis and container scanning tools, and ran a vulnerability assessment on a development environment.</p>
+      <p>I also practice <b>responsible disclosure</b>: I've reported exposed <b>.git</b> directories and <b>phpinfo()</b> leaks on university web infrastructure, and hunt on HackerOne programs with subfinder, httpx, nuclei and Burp Suite.</p>
       <p>Off the clock, I've led large-scale cultural events and coordinated campus media — <b>leadership reps</b> that sharpen the same communication a good vulnerability report demands.</p>
     </div>
     <div class="stubs reveal">
       <div class="stub"><div class="stub-num">120+</div><div class="stub-label">CVE SIGNATURES MAPPED<br>ACROSS 15 LIBRARIES</div></div>
       <div class="stub"><div class="stub-num">95%</div><div class="stub-label">IDS CLASSIFICATION<br>ACCURACY ACHIEVED</div></div>
-      <div class="stub"><div class="stub-num">05</div><div class="stub-label">SECURITY CERTIFICATIONS<br>ON RECORD</div></div>
-      <div class="stub"><div class="stub-num">03</div><div class="stub-label">MAJOR ADVISORY<br>RECORDS FILED</div></div>
+      <div class="stub"><div class="stub-num">04</div><div class="stub-label">SECURITY CERTIFICATIONS<br>VERIFIED</div></div>
+      <div class="stub"><div class="stub-num">02</div><div class="stub-label">RESPONSIBLE<br>DISCLOSURES FILED</div></div>
     </div>
   </div>
 </section>
@@ -345,57 +361,85 @@
     </div>
     <div class="cf-body">
       <ul class="cf-list">
+        <li>Performed <b>VAPT on a development environment</b>, identifying hardcoded OAuth credentials, exposed CloudFormation templates, plaintext API keys in Lambda source, and CI/CD pipeline exposures — and delivered a formal remediation report.</li>
+        <li>Developed <b>DuckDefender</b>, a Docker-based container/image scanning tool for CVE detection, dependency analysis, and secret leakage identification.</li>
+        <li>Built <b>api_scanner.py</b>, a Python-based static analysis tool (AST parsing, regex, 30+ library knowledge base) to detect API usage patterns for vulnerability correlation and risk assessment.</li>
         <li>Mapped <b>120+ CVE signatures</b> to function-level vulnerability detections across 15 libraries (including TensorFlow), improving detection precision over file/package-level matching by ~35%.</li>
-        <li>Built <b>api_scanner.py</b>, a Python-based static analysis tool to detect API usage patterns in codebases for vulnerability correlation and risk assessment.</li>
         <li>Designed true positive/negative test case pipelines for CVE validation — covering requirements filtering, signature validation, and execution testing stages.</li>
         <li>Contributed to <b>CERT-In compliant SBOM generation</b> workflows across Archive Property, Structured Property, VEX, and CSAF formats.</li>
-        <li>Developed <b>DuckDefender</b>, a Docker-based container/image scanning tool for CVE detection, dependency analysis, and secret leakage identification.</li>
-        <li>Performed <b>VAPT on a live environment</b>, identifying critical vulnerabilities — hardcoded OAuth credentials, exposed CloudFormation templates, plaintext API keys in Lambda source, CI/CD pipeline exposures — and delivered a formal remediation report.</li>
       </ul>
     </div>
   </div>
 </section>
 
+<section id="findings">
+  <div class="sec-head">
+    <span class="sec-tag">§03 — BUG FINDINGS</span>
+    <h2 class="sec-title reveal-title">Bug Bounty &amp; Disclosures<span class="bar"></span></h2>
+  </div>
+  <div class="finds">
+    <div class="find reveal">
+      <div class="find-tag">INFORMATION DISCLOSURE</div>
+      <h3>Exposed <code>.git</code> directory</h3>
+      <p>Found a publicly accessible <code>.git</code> directory on university web infrastructure, which can expose source code and commit history. Reported through a formal report.</p>
+      <div class="find-st">STATUS: RESPONSIBLY DISCLOSED</div>
+    </div>
+    <div class="find reveal">
+      <div class="find-tag">INFORMATION DISCLOSURE</div>
+      <h3>Exposed <code>phpinfo()</code> page</h3>
+      <p>Found a <code>phpinfo()</code> page leaking server configuration details on university web infrastructure. Reported through a formal report.</p>
+      <div class="find-st">STATUS: RESPONSIBLY DISCLOSED</div>
+    </div>
+    <div class="find h reveal">
+      <div class="find-tag">BUG BOUNTY</div>
+      <h3>HackerOne practice</h3>
+      <p>Recon and testing workflow on HackerOne programs, including Shopify and OPPO, using subfinder, httpx, nuclei and Burp Suite.</p>
+      <div class="find-st">TOOLCHAIN: SUBFINDER → HTTPX → NUCLEI → BURP</div>
+    </div>
+  </div>
+  <p class="find-note">* Target specifics are withheld in line with responsible disclosure.</p>
+</section>
+
 <section id="skills">
   <div class="sec-head">
-    <span class="sec-tag">§03 — CAPABILITY MATRIX</span>
+    <span class="sec-tag">§04 — CAPABILITY MATRIX</span>
     <h2 class="sec-title reveal-title">Technical Arsenal<span class="bar"></span></h2>
   </div>
   <div class="matrix">
     <div class="matrix-cell reveal">
       <h4>Security <span>Concepts</span></h4>
       <div class="pills">
-        <span class="pill a">CVE Analysis</span><span class="pill a">SBOM</span><span class="pill">Network Security</span><span class="pill">IDS/IPS</span><span class="pill">Vulnerability Assessment</span><span class="pill">Ethical Hacking</span><span class="pill">IoT Security</span>
+        <span class="pill a">OWASP</span><span class="pill a">API Security</span><span class="pill a">CVE Analysis</span><span class="pill a">SBOM</span><span class="pill">AuthN/AuthZ Testing</span><span class="pill">Secret Detection</span><span class="pill">VAPT</span><span class="pill">IDS/IPS</span><span class="pill">IoT Security</span>
       </div>
     </div>
     <div class="matrix-cell reveal">
       <h4>Security <span>Tools</span></h4>
       <div class="pills">
-        <span class="pill">Wireshark</span><span class="pill">Nmap</span><span class="pill">Burp Suite</span><span class="pill">Cisco Packet Tracer</span>
+        <span class="pill">Burp Suite</span><span class="pill">Autorize</span><span class="pill">Nuclei</span><span class="pill">subfinder</span><span class="pill">httpx</span><span class="pill">Nmap</span><span class="pill">Wireshark</span><span class="pill">Cisco Packet Tracer</span>
+      </div>
+    </div>
+    <div class="matrix-cell reveal">
+      <h4>Cloud <span>& CI/CD</span></h4>
+      <div class="pills">
+        <span class="pill a">AWS (CloudFormation, Lambda)</span><span class="pill a">CI/CD Security Review</span><span class="pill">Container Scanning</span><span class="pill">Docker</span><span class="pill">Git / GitHub</span>
       </div>
     </div>
     <div class="matrix-cell reveal">
       <h4>ML <span>& Data</span></h4>
       <div class="pills">
-        <span class="pill b">Scikit-learn</span><span class="pill b">XGBoost</span><span class="pill b">TensorFlow</span><span class="pill b">Keras</span><span class="pill">Pandas</span>
+        <span class="pill b">Adversarial ML (FGSM)</span><span class="pill b">Scikit-learn</span><span class="pill b">XGBoost</span><span class="pill b">TensorFlow</span><span class="pill b">Keras</span><span class="pill">Pandas</span>
       </div>
     </div>
     <div class="matrix-cell reveal">
       <h4>IoT <span>& Embedded</span></h4>
       <div class="pills">
-        <span class="pill a">ESP32</span><span class="pill a">LoRa</span><span class="pill a">MQTT</span><span class="pill">GPS (NEO-6M)</span><span class="pill">AES Encryption</span>
+        <span class="pill a">ESP32</span><span class="pill a">LoRa</span><span class="pill a">MQTT</span><span class="pill">GPS (NEO-6M)</span><span class="pill">AES Encryption</span><span class="pill">TLS</span>
       </div>
     </div>
     <div class="matrix-cell reveal">
       <h4>Languages <span>& OS</span></h4>
       <div class="pills">
-        <span class="pill">Python</span><span class="pill">C</span><span class="pill">C++</span><span class="pill">Java</span><span class="pill">Kali Linux</span><span class="pill">Ubuntu</span><span class="pill">Windows</span>
-      </div>
-    </div>
-    <div class="matrix-cell reveal">
-      <h4>Dev <span>& Web</span></h4>
-      <div class="pills">
-        <span class="pill">Git</span><span class="pill">VS Code</span><span class="pill">Docker</span><span class="pill">HTML/CSS/JS</span>
+        <span class="pill">Python</span><span class="pill">C</span><span class="pill">C++</span><span class="pill">Java</span><span class="pill">JavaScript</span><span class="pill">HTML/CSS</span><span class="pill">Kali Linux</span><span class="pill">Ubuntu</span><span class="pill">Windows</span>
       </div>
     </div>
   </div>
@@ -403,10 +447,25 @@
 
 <section id="projects">
   <div class="sec-head">
-    <span class="sec-tag">§04 — ADVISORY RECORDS</span>
+    <span class="sec-tag">§05 — ADVISORY RECORDS</span>
     <h2 class="sec-title reveal-title">What I've Built<span class="bar"></span></h2>
   </div>
   <div class="records">
+    <div class="record reveal">
+      <div class="rec-top">
+        <div>
+          <div class="rec-id">ADV-2026-007 · 2026 – PRESENT</div>
+          <div class="rec-title">SMTFuzz: SMT-Driven Fuzzer for Business Logic Flaws in Stateful APIs</div>
+        </div>
+        <div class="impact">
+          <div class="impact-score wip">WIP</div>
+          <div class="impact-label">IN PROGRESS</div>
+          <div class="meter"><i class="wip" style="width:45%"></i></div>
+        </div>
+      </div>
+      <div class="rec-desc">Designing a grey-box fuzzer that uses Z3 constraint solving to generate adversarial API call sequences targeting authorization and business logic flaws and race conditions in stateful REST APIs. Evaluation is planned on OWASP crAPI, VAmPI, and a seeded-bug app, benchmarked against Burp Suite, Autorize, and RESTler.</div>
+      <div class="rec-tags"><span class="pill">Python</span><span class="pill a">Z3</span><span class="pill">httpx</span><span class="pill a">OpenAPI</span><span class="pill">pytest</span></div>
+    </div>
     <div class="record reveal">
       <div class="rec-top">
         <div>
@@ -457,7 +516,7 @@
 
 <section id="certifications">
   <div class="sec-head">
-    <span class="sec-tag">§05 — VERIFICATION LOG</span>
+    <span class="sec-tag">§06 — VERIFICATION LOG</span>
     <h2 class="sec-title reveal-title">Credentials<span class="bar"></span></h2>
   </div>
   <div class="verilog reveal">
@@ -496,18 +555,18 @@
 
 <section id="contact">
   <div class="sec-head">
-    <span class="sec-tag">§06 — DISCLOSURE CONTACT</span>
+    <span class="sec-tag">§07 — DISCLOSURE CONTACT</span>
     <h2 class="sec-title reveal-title">Open a Channel<span class="bar"></span></h2>
   </div>
   <div class="disclosure reveal">
     <div>
       <div class="disc-big">Let's talk<br><span>security.</span></div>
-      <p class="disc-note">Open to security engineering, VAPT, and IoT security roles — plus research collaborations and good conversations about cyber security, ML, and everything in between.</p>
+      <p class="disc-note">Open to security engineering, application and API security, and VAPT roles — plus research collaborations and good conversations about cyber security, ML, and everything in between.</p>
     </div>
     <div class="channels">
       <a href="mailto:sathwikchallapalli@gmail.com" class="channel"><span class="channel-k">EMAIL</span><span class="channel-v">sathwikchallapalli@gmail.com</span></a>
-      <a href="https://linkedin.com/in/challapalli-sathwik" target="_blank" class="channel"><span class="channel-k">LINKEDIN</span><span class="channel-v">Challapalli Sathwik</span></a>
-      <a href="https://github.com/sathwikchallapalli" target="_blank" class="channel"><span class="channel-k">GITHUB</span><span class="channel-v">sathwikchallapalli</span></a>
+      <a href="https://www.linkedin.com/in/sathwikchallapalli/" target="_blank" rel="noopener" class="channel"><span class="channel-k">LINKEDIN</span><span class="channel-v">sathwikchallapalli</span></a>
+      <a href="https://github.com/ChallapalliSathwik" target="_blank" rel="noopener" class="channel"><span class="channel-k">GITHUB</span><span class="channel-v">ChallapalliSathwik</span></a>
       <a href="tel:+919441158787" class="channel"><span class="channel-k">PHONE</span><span class="channel-v">+91 9441158787</span></a>
     </div>
   </div>
